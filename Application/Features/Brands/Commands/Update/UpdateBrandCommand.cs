@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Brands.Commands.Update;
 
+//UpdatedBrandResponse donus tipi
 public class UpdateBrandCommand : IRequest<UpdatedBrandResponse>
 {
     public Guid Id { get; set; }

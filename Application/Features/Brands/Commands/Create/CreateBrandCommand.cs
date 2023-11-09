@@ -14,6 +14,7 @@ public class CreateBrandCommand:IRequest<CreatedBrandResponse>
 {
     public string Name { get; set; }
 
+    //Brand gonderdigimiz zaman Handler devreye giriyor.
     public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, CreatedBrandResponse>
     {
         private readonly IBrandRepository _brandRepository;
@@ -31,6 +32,8 @@ public class CreateBrandCommand:IRequest<CreatedBrandResponse>
 
             // var result = await _brandRepository.AddAsync(brand) //Alttaki de kabul bu da kabul;
             await _brandRepository.AddAsync(brand);
+
+            //result i CreatedBrandResponse a cevir(map le)
             CreatedBrandResponse createdBrandResponse =_mapper.Map<CreatedBrandResponse>(brand);   
             return createdBrandResponse;
 
