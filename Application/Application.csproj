@@ -12,7 +12,6 @@
     <Folder Include="Features\Models\Commands\" />
     <Folder Include="Features\Models\Constants\" />
     <Folder Include="Features\Models\Rules\" />
-    <Folder Include="Features\Models\Profiles\" />
   </ItemGroup>
 
   <ItemGroup>
