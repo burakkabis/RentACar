@@ -16,15 +16,17 @@ public class BrandBusinessRules:BaseBusinessRules
 
     private readonly IBrandRepository _brandRepository;
 
+    //Is kurallari gecilirse veri tabanina gider.
     public BrandBusinessRules(IBrandRepository brandRepository)
     {
         _brandRepository = brandRepository;
     }
 
 
-
+    
     public async Task BrandNameCannotBeDuplicatedWhenInserted(string name)
     {
+        
         Brand? result = await _brandRepository.GetAsync(predicate: b => b.Name.ToLower() == name.ToLower());
 
         if (result != null)
