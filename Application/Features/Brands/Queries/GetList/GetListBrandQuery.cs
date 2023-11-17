@@ -15,7 +15,7 @@ namespace Application.Features.Brands.Queries.GetList;
 
 
 //Bize yapilacak istegin nesnesi
-public class GetListBrandQuery : IRequest<GetListResponse<GetListBrandListItemDto>>
+public class GetListBrandQuery : IRequest<GetListResponse<GetListBrandListItemDto>>,ICachableRequest
 {
     public PageRequest PageRequest { get; set; }
 
