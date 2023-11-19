@@ -17,7 +17,7 @@ public class CreateBrandCommand:IRequest<CreatedBrandResponse>,ITransactionalReq
     public string Name { get; set; }
 
     //Brand gonderdigimiz zaman Handler devreye giriyor.
-    public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, CreatedBrandResponse>, ICachableRequest
+    public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, CreatedBrandResponse>
     {
         private readonly IBrandRepository _brandRepository;
         private readonly IMapper _mapper;

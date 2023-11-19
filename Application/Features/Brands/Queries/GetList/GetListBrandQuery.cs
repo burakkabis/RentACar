@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Application.Features.Brands.Queries.GetList;
 
 
-//Bize yapilacak istegin nesnesi
+//Bize yapilacak istegin nesnesi//Kullanicinin yaptigi istek
 public class GetListBrandQuery : IRequest<GetListResponse<GetListBrandListItemDto>>,ICachableRequest
 {
     public PageRequest PageRequest { get; set; }

@@ -21,7 +21,7 @@ public class BrandConfiguration : IEntityTypeConfiguration<Brand>
         builder.Property(b => b.UpdatedDate).HasColumnName("UpdatedDate");
         builder.Property(b => b.DeletedDate).HasColumnName("DeletedDate");
 
-        builder.HasIndex(indexExpression: b => b.Name, name: "UK_Brands_Name").IsUnique();
+        builder.HasIndex(indexExpression: b => b.Name, name: "UK_Brands_Name").IsUnique(); //Marka isminin tekrar etmemesini saglar.
 
         builder.HasMany(b => b.Models);
 
