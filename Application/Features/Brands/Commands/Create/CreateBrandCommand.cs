@@ -1,6 +1,8 @@
 ﻿using Application.Features.Brands.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Pipelines.Caching;
+using Core.Application.Pipelines.Logging;
 using Core.Application.Pipelines.Transaction;
 using Domain.Entities;
 using MediatR;
@@ -12,11 +14,16 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Brands.Commands.Create;
 
-public class CreateBrandCommand:IRequest<CreatedBrandResponse>,ITransactionalRequest
+public class CreateBrandCommand:IRequest<CreatedBrandResponse>,ITransactionalRequest,ICacheRemoverRequest,ILoggableRequest
 {
+    //Kullanicinin istek yaparken girecegi alan.(Name)
     public string Name { get; set; }
 
-    //Brand gonderdigimiz zaman Handler devreye giriyor.
+    public string? CacheKey => "";
+
+    public bool BypassCache => false;
+    public string? CacheGroupKey => "GetBrands";
+
     public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, CreatedBrandResponse>
     {
         private readonly IBrandRepository _brandRepository;
@@ -28,6 +35,7 @@ public class CreateBrandCommand:IRequest<CreatedBrandResponse>,ITransactionalReq
             _brandRepository = brandRepository;
             _mapper = mapper;
         }
+        //Brand gonderdigimiz zaman Handler devreye giriyor.Yani command geldiignde handler calisiyor.
 
         public async Task<CreatedBrandResponse>? Handle(CreateBrandCommand request, CancellationToken cancellationToken)
         {

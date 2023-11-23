@@ -31,6 +31,7 @@ public class BaseDbContext:DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        //Mevcut assembly deki configurasyonlari bulur ve uygular.
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }
