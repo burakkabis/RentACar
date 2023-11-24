@@ -17,6 +17,7 @@ namespace Application.Features.Brands.Queries.GetList;
 
 
 //Bize yapilacak istegin nesnesi//Kullanicinin yaptigi istek
+//Donus tipi olarak GetListResponse<GetListBrandListItemDto> bu yapiyi donduruyor.
 public class GetListBrandQuery : IRequest<GetListResponse<GetListBrandListItemDto>>, ICachableRequest//,ILoggableRequest
 {
     public PageRequest PageRequest { get; set; }
@@ -47,6 +48,9 @@ public class GetListBrandQuery : IRequest<GetListResponse<GetListBrandListItemDt
                 cancellationToken: cancellationToken,
                 withDeleted: true
                 );
+
+            //Ustteki kisimda tum brand datasini doner.
+            //Asagidaki kodda ise map leme sonucu istedigimiz yani (GetListResponse<GetListBrandListItemDto>) datasini doner,
 
             GetListResponse<GetListBrandListItemDto> response = _mapper.Map<GetListResponse<GetListBrandListItemDto>>(brands);
             return response;

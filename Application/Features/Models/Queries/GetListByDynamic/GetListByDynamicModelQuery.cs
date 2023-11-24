@@ -17,6 +17,8 @@ namespace Application.Features.Models.Queries.GetListByDynamic;
 
 public class GetListByDynamicModelQuery : IRequest<GetListResponse<GetListByDynamicModelListItemDto>>
 {
+
+    //Kullanicidan PageRequest ve DynamicQuery istiyoruz.
     public PageRequest PageRequest { get; set; }
     public DynamicQuery DynamicQuery { get; set; }
 

@@ -25,6 +25,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetListByDynamic([FromQuery] PageRequest pageRequest, [FromBody] DynamicQuery? dynamicQuery = null)
         {
             GetListByDynamicModelQuery getListByDynamicModelQuery = new() { PageRequest = pageRequest, DynamicQuery = dynamicQuery };
+            //GetListResponse<GetListByDynamicModelListItemDto>  donus tipi
             GetListResponse<GetListByDynamicModelListItemDto> response = await Mediator.Send(getListByDynamicModelQuery);
             return Ok(response);
         }

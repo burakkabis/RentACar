@@ -31,8 +31,10 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{id}")]
+        //Route dan id ver.
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
+            //GetByIdBrandQuery gonderiyoruz.Icinde de sadece id var.
             GetByIdBrandQuery getByIdBrandQuery = new() { Id = id };
             GetByIdBrandResponse response = await Mediator.Send(getByIdBrandQuery);
             return Ok(response);
