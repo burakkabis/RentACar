@@ -18,7 +18,7 @@ namespace Application.Features.Brands.Queries.GetList;
 
 //Bize yapilacak istegin nesnesi//Kullanicinin yaptigi istek
 //Donus tipi olarak GetListResponse<GetListBrandListItemDto> bu yapiyi donduruyor.
-public class GetListBrandQuery : IRequest<GetListResponse<GetListBrandListItemDto>>, ICachableRequest//,ILoggableRequest
+public class GetListBrandQuery : IRequest<GetListResponse<GetListBrandListItemDto>>, ICachableRequest,ILoggableRequest
 {
     public PageRequest PageRequest { get; set; }
 

@@ -33,13 +33,13 @@ public static class ApplicationServiceRegistration
             configuration.AddOpenBehavior(typeof(TransactionScopeBehavior<,>));
             configuration.AddOpenBehavior(typeof(CachingBehavior<,>));
             configuration.AddOpenBehavior(typeof(CacheRemovingBehavior<,>));
-         //   configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
+            configuration.AddOpenBehavior(typeof(LoggingBehavior<,>));
 
 
 
         });
 
-       // services.AddSingleton<LoggerServiceBase, MsSqlLogger>();
+       services.AddSingleton<LoggerServiceBase, FileLogger>();
         return services;
     }
 
